@@ -1,4 +1,5 @@
 
+
 # A Modern Salon Organizer App for Appointments
 
 A comprehensive full-stack **Salon Organizer App** designed to help salons manage appointments, services, and schedules efficiently.  
@@ -39,6 +40,7 @@ This application aims to:
 - JavaScript
 - API integration (Axios/Fetch)
 
+
 **Backend**
 
 - Java Spring Boot (or another backend framework)
@@ -54,4 +56,6 @@ This application aims to:
 ---
 
 ## 📁 Project Structure
+
+
 
