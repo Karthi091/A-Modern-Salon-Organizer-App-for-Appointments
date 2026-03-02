@@ -1,0 +1,689 @@
+2025-04-05 06:59:01.869  INFO 651 --- [main] c.example.demo.CustomerRepositoryTests   : Starting CustomerRepositoryTests using Java 17.0.12 on ffbaaddbaddfacdacbbcebbdffebfabccffa-0 with PID 651 (started by coder in /home/coder/project/workspace/demo)
+2025-04-05 06:59:01.885  INFO 651 --- [main] c.example.demo.CustomerRepositoryTests   : No active profile set, falling back to 1 default profile: "default"
+2025-04-05 06:59:01.926 DEBUG 651 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@46e8a539
+2025-04-05 06:59:02.595  INFO 651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-05 06:59:02.642  INFO 651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 3 JPA repository interfaces.
+2025-04-05 06:59:03.392  INFO 651 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-05 06:59:03.432  INFO 651 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-04-05 06:59:03.587  INFO 651 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-04-05 06:59:03.672  INFO 651 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-05 06:59:03.907  INFO 651 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-05 06:59:03.919  INFO 651 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-04-05 06:59:04.463 DEBUG 651 --- [main] org.hibernate.SQL                        : alter table appointments drop foreign key FKrlbb09f329sfsmftrh7y0yxtk
+2025-04-05 06:59:04.496 DEBUG 651 --- [main] org.hibernate.SQL                        : alter table rewards drop foreign key FKsq7037t2sstrj37x5cmvb7lcl
+2025-04-05 06:59:04.526 DEBUG 651 --- [main] org.hibernate.SQL                        : drop table if exists appointments
+2025-04-05 06:59:04.535 DEBUG 651 --- [main] org.hibernate.SQL                        : drop table if exists customers
+2025-04-05 06:59:04.581 DEBUG 651 --- [main] org.hibernate.SQL                        : drop table if exists rewards
+2025-04-05 06:59:04.591 DEBUG 651 --- [main] org.hibernate.SQL                        : create table appointments (id bigint not null auto_increment, appointment_time datetime(6), service_name varchar(255), status varchar(255), customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 06:59:04.604 DEBUG 651 --- [main] org.hibernate.SQL                        : create table customers (id bigint not null auto_increment, email varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 06:59:04.617 DEBUG 651 --- [main] org.hibernate.SQL                        : create table rewards (id bigint not null auto_increment, name varchar(255), points integer not null, customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 06:59:04.630 DEBUG 651 --- [main] org.hibernate.SQL                        : alter table appointments add constraint FKrlbb09f329sfsmftrh7y0yxtk foreign key (customer_id) references customers (id)
+2025-04-05 06:59:04.661 DEBUG 651 --- [main] org.hibernate.SQL                        : alter table rewards add constraint FKsq7037t2sstrj37x5cmvb7lcl foreign key (customer_id) references customers (id)
+2025-04-05 06:59:04.693  INFO 651 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-04-05 06:59:04.703  INFO 651 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-05 06:59:05.894  WARN 651 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-05 06:59:06.201 DEBUG 651 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-04-05 06:59:06.352 DEBUG 651 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 28 mappings in 'requestMappingHandlerMapping'
+2025-04-05 06:59:07.570 DEBUG 651 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-04-05 06:59:07.594 DEBUG 651 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-04-05 06:59:08.050  INFO 651 --- [main] c.example.demo.CustomerRepositoryTests   : Started CustomerRepositoryTests in 6.44 seconds (JVM running for 7.44)
+2025-04-05 06:59:08.249 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.260 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:08.262 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.263 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [100]
+2025-04-05 06:59:08.370 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.371 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [john.doe@example.com]
+2025-04-05 06:59:08.371 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password]
+2025-04-05 06:59:08.371 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [JohnDoe]
+2025-04-05 06:59:08.377 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.379 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-04-06T06:59:08.359647086]
+2025-04-05 06:59:08.380 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [1]
+2025-04-05 06:59:08.380 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Consultation]
+2025-04-05 06:59:08.380 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:08.386 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.387 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-04-07T06:59:08.359735735]
+2025-04-05 06:59:08.387 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [1]
+2025-04-05 06:59:08.387 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Follow-up]
+2025-04-05 06:59:08.387 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:08.428 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, appointmen1_.id as id1_0_1_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_, appointmen1_.appointment_time as appointm2_0_1_, appointmen1_.customer_id as customer5_0_1_, appointmen1_.service_name as service_3_0_1_, appointmen1_.status as status4_0_1_, appointmen1_.customer_id as customer5_0_0__, appointmen1_.id as id1_0_0__ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id where customer0_.id=?
+2025-04-05 06:59:08.430 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 06:59:08.451 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.452 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 06:59:08.469 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.470 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [john@example.com]
+2025-04-05 06:59:08.470 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password123]
+2025-04-05 06:59:08.470 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [john_doe]
+2025-04-05 06:59:08.621 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.622 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:08.623 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.623 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [150]
+2025-04-05 06:59:08.635 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:08.636 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-04-05 06:59:08.643 DEBUG 651 --- [main] org.hibernate.SQL                        : update rewards set customer_id=?, name=?, points=? where id=?
+2025-04-05 06:59:08.644 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:08.645 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.646 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [250]
+2025-04-05 06:59:08.647 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2025-04-05 06:59:08.662 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.663 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [mike@example.com]
+2025-04-05 06:59:08.663 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [initialpass]
+2025-04-05 06:59:08.663 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [mike_ross]
+2025-04-05 06:59:08.672 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_2_, customer0_.email as email2_1_2_, customer0_.password as password3_1_2_, customer0_.username as username4_1_2_, appointmen1_.customer_id as customer5_0_4_, appointmen1_.id as id1_0_4_, appointmen1_.id as id1_0_0_, appointmen1_.appointment_time as appointm2_0_0_, appointmen1_.customer_id as customer5_0_0_, appointmen1_.service_name as service_3_0_0_, appointmen1_.status as status4_0_0_, reward2_.id as id1_2_1_, reward2_.customer_id as customer4_2_1_, reward2_.name as name2_2_1_, reward2_.points as points3_2_1_ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id left outer join rewards reward2_ on customer0_.id=reward2_.customer_id where customer0_.id=?
+2025-04-05 06:59:08.673 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2025-04-05 06:59:08.683 DEBUG 651 --- [main] org.hibernate.SQL                        : update customers set email=?, password=?, username=? where id=?
+2025-04-05 06:59:08.684 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [mike_updated@example.com]
+2025-04-05 06:59:08.687 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [initialpass]
+2025-04-05 06:59:08.687 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [mike_ross]
+2025-04-05 06:59:08.688 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [3]
+2025-04-05 06:59:08.700 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.701 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [jane.doe@example.com]
+2025-04-05 06:59:08.701 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password]
+2025-04-05 06:59:08.701 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [JaneDoe]
+2025-04-05 06:59:08.703 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.704 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.705 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.705 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [500]
+2025-04-05 06:59:08.720 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.721 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.726 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.727 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.739 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.740 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-25T12:00]
+2025-04-05 06:59:08.741 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:08.741 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spa]
+2025-04-05 06:59:08.741 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:08.749 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:08.750 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2025-04-05 06:59:08.755 DEBUG 651 --- [main] org.hibernate.SQL                        : update appointments set appointment_time=?, customer_id=?, service_name=?, status=? where id=?
+2025-04-05 06:59:08.756 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-25T12:00]
+2025-04-05 06:59:08.756 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:08.756 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spa]
+2025-04-05 06:59:08.756 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Completed]
+2025-04-05 06:59:08.757 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [3]
+2025-04-05 06:59:08.780 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.781 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [jane@example.com]
+2025-04-05 06:59:08.781 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [securepass]
+2025-04-05 06:59:08.781 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [jane_doe]
+2025-04-05 06:59:08.788 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.789 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+2025-04-05 06:59:08.791 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.792 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+2025-04-05 06:59:08.806 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.806 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [sarah@example.com]
+2025-04-05 06:59:08.807 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password456]
+2025-04-05 06:59:08.807 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [sarah_connor]
+2025-04-05 06:59:08.814 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.815 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.817 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.818 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.824 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 06:59:08.825 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.830 DEBUG 651 --- [main] org.hibernate.SQL                        : delete from customers where id=?
+2025-04-05 06:59:08.830 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.838 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.839 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.848 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.848 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [mark.smith@example.com]
+2025-04-05 06:59:08.849 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password]
+2025-04-05 06:59:08.849 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [MarkSmith]
+2025-04-05 06:59:08.850 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.851 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-04-06T06:59:08.846949569]
+2025-04-05 06:59:08.851 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [7]
+2025-04-05 06:59:08.851 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Routine Check]
+2025-04-05 06:59:08.851 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:08.858 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.859 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:08.861 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.861 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:08.863 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:08.864 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.866 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 06:59:08.867 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:08.870 DEBUG 651 --- [main] org.hibernate.SQL                        : delete from appointments where id=?
+2025-04-05 06:59:08.870 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.871 DEBUG 651 --- [main] org.hibernate.SQL                        : delete from customers where id=?
+2025-04-05 06:59:08.871 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:08.877 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:08.877 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.886 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:08.886 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [lucas.brown@example.com]
+2025-04-05 06:59:08.886 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [password]
+2025-04-05 06:59:08.886 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [LucasBrown]
+2025-04-05 06:59:08.889 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.889 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2025-04-05 06:59:08.890 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.890 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [100]
+2025-04-05 06:59:08.898 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:08.899 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2025-04-05 06:59:08.906 DEBUG 651 --- [main] org.hibernate.SQL                        : update rewards set customer_id=?, name=?, points=? where id=?
+2025-04-05 06:59:08.907 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2025-04-05 06:59:08.907 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.908 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [200]
+2025-04-05 06:59:08.908 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [4]
+2025-04-05 06:59:08.915 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 06:59:08.916 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2025-04-05 06:59:08.918 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:08.918 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2025-04-05 06:59:08.937 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.938 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:08.938 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.938 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [300]
+2025-04-05 06:59:08.945 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:08.947 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+2025-04-05 06:59:08.949 DEBUG 651 --- [main] org.hibernate.SQL                        : delete from rewards where id=?
+2025-04-05 06:59:08.950 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+2025-04-05 06:59:08.955 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:08.955 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+2025-04-05 06:59:08.966 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:08.966 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:08.966 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:08.967 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [200]
+2025-04-05 06:59:08.980 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:08.981 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+2025-04-05 06:59:08.988 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.989 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-02-05T11:00]
+2025-04-05 06:59:08.989 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:08.989 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Facial]
+2025-04-05 06:59:08.989 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Confirmed]
+2025-04-05 06:59:08.994 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:08.995 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-02-10T16:00]
+2025-04-05 06:59:08.995 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:08.995 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Manicure]
+2025-04-05 06:59:08.995 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:09.014 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_, appointmen0_.appointment_time as appointm2_0_, appointmen0_.customer_id as customer5_0_, appointmen0_.service_name as service_3_0_, appointmen0_.status as status4_0_ from appointments appointmen0_
+2025-04-05 06:59:09.064 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:09.066 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:09.066 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:09.066 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [100]
+2025-04-05 06:59:09.073 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:09.074 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:09.074 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 06:59:09.074 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [200]
+2025-04-05 06:59:09.084 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_, reward0_.customer_id as customer4_2_, reward0_.name as name2_2_, reward0_.points as points3_2_ from rewards reward0_
+2025-04-05 06:59:09.116 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:09.116 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-30T14:00]
+2025-04-05 06:59:09.117 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:09.117 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Massage]
+2025-04-05 06:59:09.117 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:09.123 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:09.124 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:09.126 DEBUG 651 --- [main] org.hibernate.SQL                        : delete from appointments where id=?
+2025-04-05 06:59:09.127 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:09.132 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:09.133 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+2025-04-05 06:59:09.144 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, appointmen1_.id as id1_0_1_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_, appointmen1_.appointment_time as appointm2_0_1_, appointmen1_.customer_id as customer5_0_1_, appointmen1_.service_name as service_3_0_1_, appointmen1_.status as status4_0_1_, appointmen1_.customer_id as customer5_0_0__, appointmen1_.id as id1_0_0__ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id where customer0_.id=?
+2025-04-05 06:59:09.145 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [999]
+2025-04-05 06:59:09.155 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:09.156 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-20T15:30]
+2025-04-05 06:59:09.156 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:09.157 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Dental Checkup]
+2025-04-05 06:59:09.157 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Confirmed]
+2025-04-05 06:59:09.162 DEBUG 651 --- [main] org.hibernate.SQL                        : select appointmen0_.id as id1_0_0_, appointmen0_.appointment_time as appointm2_0_0_, appointmen0_.customer_id as customer5_0_0_, appointmen0_.service_name as service_3_0_0_, appointmen0_.status as status4_0_0_ from appointments appointmen0_ where appointmen0_.id=?
+2025-04-05 06:59:09.163 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+2025-04-05 06:59:09.174 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 06:59:09.174 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:09.175 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Old Reward]
+2025-04-05 06:59:09.175 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [100]
+2025-04-05 06:59:09.186  INFO 651 --- [main] com.example.demo.aspect.LoggingAspect    : Method Reward com.example.demo.service.RewardService.updateReward(Reward) execution started.
+2025-04-05 06:59:09.186  INFO 651 --- [main] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 06:59:09.201 DEBUG 651 --- [main] org.hibernate.SQL                        : select count(*) as col_0_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:09.201 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+2025-04-05 06:59:09.203 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.id=?
+2025-04-05 06:59:09.204 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+2025-04-05 06:59:09.205  INFO 651 --- [main] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 06:59:09.205  INFO 651 --- [main] com.example.demo.aspect.LoggingAspect    : Method Reward com.example.demo.service.RewardService.updateReward(Reward) execution completed in 20 ms.
+2025-04-05 06:59:09.206 DEBUG 651 --- [main] org.hibernate.SQL                        : update rewards set customer_id=?, name=?, points=? where id=?
+2025-04-05 06:59:09.206 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 06:59:09.206 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Updated Reward]
+2025-04-05 06:59:09.206 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [200]
+2025-04-05 06:59:09.206 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [9]
+2025-04-05 06:59:09.217 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-04-05 06:59:09.218 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-15T10:00]
+2025-04-05 06:59:09.219 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-04-05 06:59:09.219 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Haircut]
+2025-04-05 06:59:09.220 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-04-05 06:59:09.282 DEBUG 651 --- [main] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 06:59:09.282 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [clark@example.com]
+2025-04-05 06:59:09.282 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [supersecure]
+2025-04-05 06:59:09.282 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [clark_kent]
+2025-04-05 06:59:09.312 DEBUG 651 --- [main] org.hibernate.SQL                        : select customer0_.id as id1_1_, customer0_.email as email2_1_, customer0_.password as password3_1_, customer0_.username as username4_1_ from customers customer0_ where customer0_.username=?
+2025-04-05 06:59:09.313 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [clark_kent]
+2025-04-05 06:59:09.315 DEBUG 651 --- [main] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 06:59:09.315 TRACE 651 --- [main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+2025-04-05 06:59:09.344 DEBUG 651 --- [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@46e8a539, started on Sat Apr 05 06:59:01 UTC 2025
+2025-04-05 06:59:09.350  INFO 651 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-05 06:59:09.353  INFO 651 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-05 06:59:09.364  INFO 651 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-04-05 07:01:10.101  INFO 2385 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.12 on ffbaaddbaddfacdacbbcebbdffebfabccffa-0 with PID 2385 (/home/coder/project/workspace/demo/target/classes started by coder in /home/coder/project/workspace/demo)
+2025-04-05 07:01:10.103  INFO 2385 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-04-05 07:01:10.149  INFO 2385 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-05 07:01:10.149  INFO 2385 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-05 07:01:10.673  INFO 2385 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-05 07:01:10.716  INFO 2385 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2025-04-05 07:01:11.396  INFO 2385 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-04-05 07:01:11.406  INFO 2385 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-05 07:01:11.406  INFO 2385 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2025-04-05 07:01:11.461  INFO 2385 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-05 07:01:11.461  INFO 2385 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1311 ms
+2025-04-05 07:01:11.638  INFO 2385 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-05 07:01:11.668  INFO 2385 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-04-05 07:01:11.777  INFO 2385 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-04-05 07:01:11.838  INFO 2385 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-05 07:01:11.970  INFO 2385 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-05 07:01:11.984  INFO 2385 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-04-05 07:01:12.522 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : alter table appointments drop foreign key FKrlbb09f329sfsmftrh7y0yxtk
+2025-04-05 07:01:12.534 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : alter table rewards drop foreign key FKsq7037t2sstrj37x5cmvb7lcl
+2025-04-05 07:01:12.539 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : drop table if exists appointments
+2025-04-05 07:01:12.561 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : drop table if exists customers
+2025-04-05 07:01:12.568 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : drop table if exists rewards
+2025-04-05 07:01:12.576 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : create table appointments (id bigint not null auto_increment, appointment_time datetime(6), service_name varchar(255), status varchar(255), customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 07:01:12.589 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : create table customers (id bigint not null auto_increment, email varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 07:01:12.602 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : create table rewards (id bigint not null auto_increment, name varchar(255), points integer not null, customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 07:01:12.614 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : alter table appointments add constraint FKrlbb09f329sfsmftrh7y0yxtk foreign key (customer_id) references customers (id)
+2025-04-05 07:01:12.644 DEBUG 2385 --- [restartedMain] org.hibernate.SQL                        : alter table rewards add constraint FKsq7037t2sstrj37x5cmvb7lcl foreign key (customer_id) references customers (id)
+2025-04-05 07:01:12.677  INFO 2385 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-04-05 07:01:12.686  INFO 2385 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-05 07:01:13.444  WARN 2385 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-05 07:01:13.653 DEBUG 2385 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-04-05 07:01:13.757 DEBUG 2385 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 28 mappings in 'requestMappingHandlerMapping'
+2025-04-05 07:01:14.117 DEBUG 2385 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-04-05 07:01:14.137 DEBUG 2385 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-04-05 07:01:14.390  INFO 2385 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-04-05 07:01:14.423  INFO 2385 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-04-05 07:01:14.434  INFO 2385 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 4.653 seconds (JVM running for 4.979)
+2025-04-05 07:01:23.727  INFO 2385 --- [http-nio-8081-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-05 07:01:23.727  INFO 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-05 07:01:23.727 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-04-05 07:01:23.727 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-04-05 07:01:23.728 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-04-05 07:01:23.729 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@586d6a14
+2025-04-05 07:01:23.729 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3fe4a8ac
+2025-04-05 07:01:23.729 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-04-05 07:01:23.729  INFO 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-04-05 07:01:23.738 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2025-04-05 07:01:23.747 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-04-05 07:01:23.749 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-04-05 07:01:23.750 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-04-05 07:01:23.754 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-04-05 07:01:23.756 DEBUG 2385 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2025-04-05 07:01:23.773 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2025-04-05 07:01:23.777 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-04-05 07:01:24.103 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-04-05 07:01:24.106 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-04-05 07:01:24.107 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-04-05 07:01:24.108 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-04-05 07:01:24.108 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-04-05 07:01:24.109 DEBUG 2385 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-04-05 07:01:24.121 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:01:24.122 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Apr 05 07:01:24 UTC 2025, status=404, error=Not Found, message=No message available,  (truncated)...]
+2025-04-05 07:01:24.168 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-04-05 07:01:34.869 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2025-04-05 07:01:34.870 DEBUG 2385 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2025-04-05 07:01:34.886 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:01:34.886 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-04-05 07:01:34.886 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2025-04-05 07:01:35.399 DEBUG 2385 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-04-05 07:01:35.401 DEBUG 2385 --- [http-nio-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-04-05 07:01:35.410 DEBUG 2385 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:35.712 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-04-05 07:01:35.713 DEBUG 2385 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-04-05 07:01:35.715 DEBUG 2385 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-04-05 07:01:35.716 DEBUG 2385 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-ffbaaddbaddfacdacbbcebbdffebf (truncated)...]
+2025-04-05 07:01:35.717 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:36.021 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-04-05 07:01:36.022 DEBUG 2385 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-04-05 07:01:36.461  INFO 2385 --- [http-nio-8081-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 430 ms
+2025-04-05 07:01:36.476 DEBUG 2385 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-04-05 07:01:36.478 DEBUG 2385 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-04-05 07:01:36.480 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:48.577 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2025-04-05 07:01:48.577 DEBUG 2385 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2025-04-05 07:01:48.579 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:01:48.579 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-04-05 07:01:48.579 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2025-04-05 07:01:48.881 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-04-05 07:01:48.883 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-04-05 07:01:48.885 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:49.190 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-04-05 07:01:49.190 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2025-04-05 07:01:49.191 DEBUG 2385 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-04-05 07:01:49.191 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-04-05 07:01:49.192 DEBUG 2385 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-04-05 07:01:49.192 DEBUG 2385 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-ffbaaddbaddfacdacbbcebbdffebf (truncated)...]
+2025-04-05 07:01:49.193 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:49.194 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:01:49.498 DEBUG 2385 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-04-05 07:01:49.498 DEBUG 2385 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-04-05 07:01:49.503 DEBUG 2385 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-04-05 07:01:49.504 DEBUG 2385 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-04-05 07:01:49.505 DEBUG 2385 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:02:20.640 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 07:02:20.640 DEBUG 2385 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 07:02:20.657 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.example.demo.entity.Customer> com.example.demo.Controller.CustomerController.createCustomer(com.example.demo.entity.Customer): JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 11, column: 19] (through reference chain: com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0]->com.example.demo.entity.Appointment["customer"])
+2025-04-05 07:02:20.658  WARN 2385 --- [http-nio-8081-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 11, column: 19] (through reference chain: com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0]->com.example.demo.entity.Appointment["customer"])]
+2025-04-05 07:02:20.659 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-04-05 07:02:20.660 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-04-05 07:02:20.660 DEBUG 2385 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-04-05 07:02:20.662 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:02:20.662 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Apr 05 07:02:20 UTC 2025, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2025-04-05 07:02:20.664 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-04-05 07:02:44.922 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/appointments", parameters={}
+2025-04-05 07:02:44.922 DEBUG 2385 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.AppointmentController#createAppointment(Appointment)
+2025-04-05 07:02:44.924 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.example.demo.entity.Appointment> com.example.demo.Controller.AppointmentController.createAppointment(com.example.demo.entity.Appointment): JSON parse error: Cannot construct instance of `com.example.demo.entity.Appointment` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Appointment` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 11, column: 7] (through reference chain: com.example.demo.entity.Appointment["customer"]->com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0])
+2025-04-05 07:02:44.925  WARN 2385 --- [http-nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.demo.entity.Appointment` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Appointment` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 11, column: 7] (through reference chain: com.example.demo.entity.Appointment["customer"]->com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0])]
+2025-04-05 07:02:44.925 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-04-05 07:02:44.925 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-04-05 07:02:44.926 DEBUG 2385 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-04-05 07:02:44.927 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:02:44.927 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Apr 05 07:02:44 UTC 2025, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2025-04-05 07:02:44.928 DEBUG 2385 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-04-05 07:03:03.636 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/api/rewards", parameters={}
+2025-04-05 07:03:03.637 DEBUG 2385 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.RewardController#createReward(Reward)
+2025-04-05 07:03:03.639 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.example.demo.entity.Reward> com.example.demo.Controller.RewardController.createReward(com.example.demo.entity.Reward): JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 15, column: 21] (through reference chain: com.example.demo.entity.Reward["customer"]->com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0]->com.example.demo.entity.Appointment["customer"])
+2025-04-05 07:03:03.639  WARN 2385 --- [http-nio-8081-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('string')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 15, column: 21] (through reference chain: com.example.demo.entity.Reward["customer"]->com.example.demo.entity.Customer["appointments"]->java.util.ArrayList[0]->com.example.demo.entity.Appointment["customer"])]
+2025-04-05 07:03:03.640 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-04-05 07:03:03.640 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-04-05 07:03:03.641 DEBUG 2385 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-04-05 07:03:03.642 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:03:03.642 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Apr 05 07:03:03 UTC 2025, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2025-04-05 07:03:03.643 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-04-05 07:03:27.993 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/api/rewards", parameters={}
+2025-04-05 07:03:27.993 DEBUG 2385 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.RewardController#createReward(Reward)
+2025-04-05 07:03:27.997 DEBUG 2385 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Reward [id=null, points=0, name=null]]
+2025-04-05 07:03:28.006  INFO 2385 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Reward com.example.demo.service.RewardService.saveReward(Reward) execution started.
+2025-04-05 07:03:28.006  INFO 2385 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:03:28.029 DEBUG 2385 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : insert into rewards (customer_id, name, points) values (?, ?, ?)
+2025-04-05 07:03:28.039 TRACE 2385 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [null]
+2025-04-05 07:03:28.040 TRACE 2385 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 07:03:28.041 TRACE 2385 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [0]
+2025-04-05 07:03:28.056  INFO 2385 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:03:28.056  INFO 2385 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Reward com.example.demo.service.RewardService.saveReward(Reward) execution completed in 50 ms.
+2025-04-05 07:03:28.067 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:03:28.067 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Reward [id=1, points=0, name=null]]
+2025-04-05 07:03:28.068 DEBUG 2385 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 07:04:26.105 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/rewards", parameters={}
+2025-04-05 07:04:26.106 DEBUG 2385 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.RewardController#createReward(Reward)
+2025-04-05 07:04:26.107 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.example.demo.entity.Reward> com.example.demo.Controller.RewardController.createReward(com.example.demo.entity.Reward): JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('bro'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('bro')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 15] (through reference chain: com.example.demo.entity.Reward["customer"])
+2025-04-05 07:04:26.107  WARN 2385 --- [http-nio-8081-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('bro'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `com.example.demo.entity.Customer` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('bro')<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 15] (through reference chain: com.example.demo.entity.Reward["customer"])]
+2025-04-05 07:04:26.108 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-04-05 07:04:26.108 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-04-05 07:04:26.109 DEBUG 2385 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-04-05 07:04:26.110 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:04:26.110 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Apr 05 07:04:26 UTC 2025, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2025-04-05 07:04:26.111 DEBUG 2385 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2025-04-05 07:05:31.691 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 07:05:31.692 DEBUG 2385 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 07:05:31.694 DEBUG 2385 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=null, username=null, email=null]]
+2025-04-05 07:05:31.695  INFO 2385 --- [http-nio-8081-exec-3] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 07:05:31.695  INFO 2385 --- [http-nio-8081-exec-3] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:05:31.712 DEBUG 2385 --- [http-nio-8081-exec-3] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 07:05:31.712 TRACE 2385 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2025-04-05 07:05:31.712 TRACE 2385 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 07:05:31.712 TRACE 2385 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2025-04-05 07:05:31.714  INFO 2385 --- [http-nio-8081-exec-3] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:05:31.715  INFO 2385 --- [http-nio-8081-exec-3] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 20 ms.
+2025-04-05 07:05:31.724 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:05:31.725 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=null, email=null]]
+2025-04-05 07:05:31.728 DEBUG 2385 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 07:06:27.007 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 07:06:27.007 DEBUG 2385 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 07:06:27.008 DEBUG 2385 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=1, username=karthi, email=mithiii]]
+2025-04-05 07:06:27.009  INFO 2385 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 07:06:27.009  INFO 2385 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:06:27.019 DEBUG 2385 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : select customer0_.id as id1_1_2_, customer0_.email as email2_1_2_, customer0_.password as password3_1_2_, customer0_.username as username4_1_2_, appointmen1_.customer_id as customer5_0_4_, appointmen1_.id as id1_0_4_, appointmen1_.id as id1_0_0_, appointmen1_.appointment_time as appointm2_0_0_, appointmen1_.customer_id as customer5_0_0_, appointmen1_.service_name as service_3_0_0_, appointmen1_.status as status4_0_0_, reward2_.id as id1_2_1_, reward2_.customer_id as customer4_2_1_, reward2_.name as name2_2_1_, reward2_.points as points3_2_1_ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id left outer join rewards reward2_ on customer0_.id=reward2_.customer_id where customer0_.id=?
+2025-04-05 07:06:27.020 TRACE 2385 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:06:27.029  INFO 2385 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:06:27.029  INFO 2385 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 20 ms.
+2025-04-05 07:06:27.032 DEBUG 2385 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : update customers set email=?, password=?, username=? where id=?
+2025-04-05 07:06:27.033 TRACE 2385 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [mithiii]
+2025-04-05 07:06:27.033 TRACE 2385 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 07:06:27.033 TRACE 2385 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [karthi]
+2025-04-05 07:06:27.033 TRACE 2385 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [1]
+2025-04-05 07:06:27.038 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:06:27.038 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=karthi, email=mithiii]]
+2025-04-05 07:06:27.039 DEBUG 2385 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 07:08:09.056 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/customers", parameters={}
+2025-04-05 07:08:09.057 DEBUG 2385 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#getAllCustomers()
+2025-04-05 07:08:09.058  INFO 2385 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution started.
+2025-04-05 07:08:09.058  INFO 2385 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:08:09.071 DEBUG 2385 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select customer0_.id as id1_1_, customer0_.email as email2_1_, customer0_.password as password3_1_, customer0_.username as username4_1_ from customers customer0_
+2025-04-05 07:08:09.074 DEBUG 2385 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 07:08:09.075 TRACE 2385 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:08:09.078  INFO 2385 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:08:09.078  INFO 2385 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution completed in 20 ms.
+2025-04-05 07:08:09.079 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:08:09.079 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Customer [id=1, username=karthi, email=mithiii]]]
+2025-04-05 07:08:09.081 DEBUG 2385 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 07:08:09.081 TRACE 2385 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:08:09.084 DEBUG 2385 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:09:07.749 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : PUT "/api/customers/1", parameters={}
+2025-04-05 07:09:07.749 DEBUG 2385 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#updateCustomer(Long, Customer)
+2025-04-05 07:09:07.751 DEBUG 2385 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=1, username=anand, email=kavin]]
+2025-04-05 07:09:07.751  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution started.
+2025-04-05 07:09:07.752  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:09:07.754 DEBUG 2385 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 07:09:07.754 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:09:07.757 DEBUG 2385 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 07:09:07.758 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:09:07.759  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:09:07.759  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution completed in 8 ms.
+2025-04-05 07:09:07.760  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 07:09:07.760  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:09:07.761  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:09:07.761  INFO 2385 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 1 ms.
+2025-04-05 07:09:07.762 DEBUG 2385 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : update customers set email=?, password=?, username=? where id=?
+2025-04-05 07:09:07.763 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [kavin]
+2025-04-05 07:09:07.763 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 07:09:07.763 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [anand]
+2025-04-05 07:09:07.763 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [1]
+2025-04-05 07:09:07.799 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:09:07.799 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=anand, email=kavin]]
+2025-04-05 07:09:07.800 DEBUG 2385 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 07:09:07.800 TRACE 2385 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:09:07.802 DEBUG 2385 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 07:09:23.252 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/customers", parameters={}
+2025-04-05 07:09:23.252 DEBUG 2385 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#getAllCustomers()
+2025-04-05 07:09:23.253  INFO 2385 --- [http-nio-8081-exec-10] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution started.
+2025-04-05 07:09:23.253  INFO 2385 --- [http-nio-8081-exec-10] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 07:09:23.254 DEBUG 2385 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : select customer0_.id as id1_1_, customer0_.email as email2_1_, customer0_.password as password3_1_, customer0_.username as username4_1_ from customers customer0_
+2025-04-05 07:09:23.256 DEBUG 2385 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 07:09:23.256 TRACE 2385 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:09:23.257  INFO 2385 --- [http-nio-8081-exec-10] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 07:09:23.257  INFO 2385 --- [http-nio-8081-exec-10] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution completed in 4 ms.
+2025-04-05 07:09:23.258 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 07:09:23.258 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Customer [id=1, username=anand, email=kavin]]]
+2025-04-05 07:09:23.259 DEBUG 2385 --- [http-nio-8081-exec-10] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 07:09:23.259 TRACE 2385 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 07:09:23.260 DEBUG 2385 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:31:20.686  INFO 1084 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.12 on ffbaaddbaddfacdacbbcebbdffebfabccffa-0 with PID 1084 (/home/coder/project/workspace/demo/target/classes started by coder in /home/coder/project/workspace/demo)
+2025-04-05 08:31:20.720  INFO 1084 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-04-05 08:31:20.771  INFO 1084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-05 08:31:20.771  INFO 1084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-05 08:31:21.326  INFO 1084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-05 08:31:21.370  INFO 1084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
+2025-04-05 08:31:22.127  INFO 1084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-04-05 08:31:22.135  INFO 1084 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-05 08:31:22.136  INFO 1084 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2025-04-05 08:31:22.186  INFO 1084 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-05 08:31:22.186  INFO 1084 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1414 ms
+2025-04-05 08:31:22.349  INFO 1084 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-05 08:31:22.380  INFO 1084 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-04-05 08:31:22.490  INFO 1084 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-04-05 08:31:22.551  INFO 1084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-05 08:31:22.745  INFO 1084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-05 08:31:22.758  INFO 1084 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-04-05 08:31:23.229 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : alter table appointments drop foreign key FKrlbb09f329sfsmftrh7y0yxtk
+2025-04-05 08:31:23.264 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : alter table rewards drop foreign key FKsq7037t2sstrj37x5cmvb7lcl
+2025-04-05 08:31:23.346 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : drop table if exists appointments
+2025-04-05 08:31:23.355 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : drop table if exists customers
+2025-04-05 08:31:23.367 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : drop table if exists rewards
+2025-04-05 08:31:23.376 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : create table appointments (id bigint not null auto_increment, appointment_time datetime(6), service_name varchar(255), status varchar(255), customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 08:31:23.390 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : create table customers (id bigint not null auto_increment, email varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 08:31:23.404 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : create table rewards (id bigint not null auto_increment, name varchar(255), points integer not null, customer_id bigint, primary key (id)) engine=InnoDB
+2025-04-05 08:31:23.419 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : alter table appointments add constraint FKrlbb09f329sfsmftrh7y0yxtk foreign key (customer_id) references customers (id)
+2025-04-05 08:31:23.455 DEBUG 1084 --- [restartedMain] org.hibernate.SQL                        : alter table rewards add constraint FKsq7037t2sstrj37x5cmvb7lcl foreign key (customer_id) references customers (id)
+2025-04-05 08:31:23.490  INFO 1084 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-04-05 08:31:23.497  INFO 1084 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-05 08:31:24.238  WARN 1084 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-05 08:31:24.414 DEBUG 1084 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-04-05 08:31:24.528 DEBUG 1084 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 28 mappings in 'requestMappingHandlerMapping'
+2025-04-05 08:31:24.892 DEBUG 1084 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-04-05 08:31:24.906 DEBUG 1084 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-04-05 08:31:25.116  INFO 1084 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-04-05 08:31:25.145  INFO 1084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-04-05 08:31:25.155  INFO 1084 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 4.826 seconds (JVM running for 5.159)
+2025-04-05 08:31:31.113  INFO 1084 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-05 08:31:31.114  INFO 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-05 08:31:31.175 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-04-05 08:31:31.176 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-04-05 08:31:31.176 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-04-05 08:31:31.177 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@618db27d
+2025-04-05 08:31:31.178 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4b021578
+2025-04-05 08:31:31.178 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-04-05 08:31:31.178  INFO 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-04-05 08:31:31.186 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2025-04-05 08:31:31.195 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-04-05 08:31:31.197 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-04-05 08:31:31.197 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-04-05 08:31:31.201 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-04-05 08:31:31.203 DEBUG 1084 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2025-04-05 08:31:31.221 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2025-04-05 08:31:31.224 DEBUG 1084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-04-05 08:31:38.819 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2025-04-05 08:31:38.820 DEBUG 1084 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2025-04-05 08:31:38.849 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:31:38.849 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-04-05 08:31:38.850 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2025-04-05 08:31:39.267 DEBUG 1084 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-04-05 08:31:39.270 DEBUG 1084 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-04-05 08:31:39.299 DEBUG 1084 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:31:39.526 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2025-04-05 08:31:39.527 DEBUG 1084 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2025-04-05 08:31:39.528 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:31:39.529 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-04-05 08:31:39.529 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2025-04-05 08:31:39.799 DEBUG 1084 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-04-05 08:31:39.800 DEBUG 1084 --- [http-nio-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-04-05 08:31:39.803 DEBUG 1084 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:31:40.085 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-04-05 08:31:40.086 DEBUG 1084 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-04-05 08:31:40.089 DEBUG 1084 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-04-05 08:31:40.092 DEBUG 1084 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-ffbaaddbaddfacdacbbcebbdffebf (truncated)...]
+2025-04-05 08:31:40.101 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:31:40.370 DEBUG 1084 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-04-05 08:31:40.370 DEBUG 1084 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-04-05 08:31:41.345  INFO 1084 --- [http-nio-8081-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 956 ms
+2025-04-05 08:31:41.368 DEBUG 1084 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-04-05 08:31:41.371 DEBUG 1084 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-04-05 08:31:41.373 DEBUG 1084 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:32:07.331 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 08:32:07.331 DEBUG 1084 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 08:32:07.341 DEBUG 1084 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=null, username=null, email=null]]
+2025-04-05 08:32:07.348  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 08:32:07.348  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:32:07.373 DEBUG 1084 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 08:32:07.381 TRACE 1084 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2025-04-05 08:32:07.381 TRACE 1084 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 08:32:07.381 TRACE 1084 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2025-04-05 08:32:07.394  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:32:07.394  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 46 ms.
+2025-04-05 08:32:07.405 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:32:07.405 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=null, email=null]]
+2025-04-05 08:32:07.408 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 08:32:53.183 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 08:32:53.183 DEBUG 1084 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 08:32:53.185 DEBUG 1084 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=1, username=karthi, email=anand]]
+2025-04-05 08:32:53.186  INFO 1084 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 08:32:53.186  INFO 1084 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:32:53.195 DEBUG 1084 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : select customer0_.id as id1_1_2_, customer0_.email as email2_1_2_, customer0_.password as password3_1_2_, customer0_.username as username4_1_2_, appointmen1_.customer_id as customer5_0_4_, appointmen1_.id as id1_0_4_, appointmen1_.id as id1_0_0_, appointmen1_.appointment_time as appointm2_0_0_, appointmen1_.customer_id as customer5_0_0_, appointmen1_.service_name as service_3_0_0_, appointmen1_.status as status4_0_0_, reward2_.id as id1_2_1_, reward2_.customer_id as customer4_2_1_, reward2_.name as name2_2_1_, reward2_.points as points3_2_1_ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id left outer join rewards reward2_ on customer0_.id=reward2_.customer_id where customer0_.id=?
+2025-04-05 08:32:53.197 TRACE 1084 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:32:53.208  INFO 1084 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:32:53.208  INFO 1084 --- [http-nio-8081-exec-2] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 22 ms.
+2025-04-05 08:32:53.211 DEBUG 1084 --- [http-nio-8081-exec-2] org.hibernate.SQL                        : update customers set email=?, password=?, username=? where id=?
+2025-04-05 08:32:53.212 TRACE 1084 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [anand]
+2025-04-05 08:32:53.212 TRACE 1084 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 08:32:53.212 TRACE 1084 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [karthi]
+2025-04-05 08:32:53.212 TRACE 1084 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [1]
+2025-04-05 08:32:53.218 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:32:53.218 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=karthi, email=anand]]
+2025-04-05 08:32:53.219 DEBUG 1084 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 08:33:17.371 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-04-05 08:33:17.371 DEBUG 1084 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-04-05 08:33:17.372 DEBUG 1084 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=2, username=kavin, email=mithi]]
+2025-04-05 08:33:17.373  INFO 1084 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 08:33:17.373  INFO 1084 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:33:17.374 DEBUG 1084 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select customer0_.id as id1_1_2_, customer0_.email as email2_1_2_, customer0_.password as password3_1_2_, customer0_.username as username4_1_2_, appointmen1_.customer_id as customer5_0_4_, appointmen1_.id as id1_0_4_, appointmen1_.id as id1_0_0_, appointmen1_.appointment_time as appointm2_0_0_, appointmen1_.customer_id as customer5_0_0_, appointmen1_.service_name as service_3_0_0_, appointmen1_.status as status4_0_0_, reward2_.id as id1_2_1_, reward2_.customer_id as customer4_2_1_, reward2_.name as name2_2_1_, reward2_.points as points3_2_1_ from customers customer0_ left outer join appointments appointmen1_ on customer0_.id=appointmen1_.customer_id left outer join rewards reward2_ on customer0_.id=reward2_.customer_id where customer0_.id=?
+2025-04-05 08:33:17.374 TRACE 1084 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-04-05 08:33:17.375 DEBUG 1084 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-04-05 08:33:17.376 TRACE 1084 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [mithi]
+2025-04-05 08:33:17.376 TRACE 1084 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 08:33:17.376 TRACE 1084 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [kavin]
+2025-04-05 08:33:17.377  INFO 1084 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:33:17.377  INFO 1084 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 4 ms.
+2025-04-05 08:33:17.382 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:33:17.383 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=2, username=kavin, email=mithi]]
+2025-04-05 08:33:17.383 DEBUG 1084 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-04-05 08:34:23.241 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : PUT "/api/customers/1", parameters={}
+2025-04-05 08:34:23.242 DEBUG 1084 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#updateCustomer(Long, Customer)
+2025-04-05 08:34:23.243 DEBUG 1084 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=1, username=lokii, email=harish]]
+2025-04-05 08:34:23.243  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution started.
+2025-04-05 08:34:23.243  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:34:23.248 DEBUG 1084 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 08:34:23.249 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:23.253 DEBUG 1084 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 08:34:23.253 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:23.255  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:34:23.255  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution completed in 12 ms.
+2025-04-05 08:34:23.256  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-04-05 08:34:23.256  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:34:23.257  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:34:23.257  INFO 1084 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 1 ms.
+2025-04-05 08:34:23.258 DEBUG 1084 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : update customers set email=?, password=?, username=? where id=?
+2025-04-05 08:34:23.258 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [harish]
+2025-04-05 08:34:23.258 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-04-05 08:34:23.258 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [lokii]
+2025-04-05 08:34:23.258 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [1]
+2025-04-05 08:34:23.264 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:34:23.265 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=lokii, email=harish]]
+2025-04-05 08:34:23.266 DEBUG 1084 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 08:34:23.267 TRACE 1084 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:23.268 DEBUG 1084 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-04-05 08:34:43.464 DEBUG 1084 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : DELETE "/api/customers/1", parameters={}
+2025-04-05 08:34:43.465 DEBUG 1084 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#deleteCustomer(Long)
+2025-04-05 08:34:43.465  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution started.
+2025-04-05 08:34:43.465  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:34:43.467 DEBUG 1084 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-04-05 08:34:43.467 TRACE 1084 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:43.468 DEBUG 1084 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 08:34:43.468 TRACE 1084 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:43.469  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:34:43.469  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution completed in 4 ms.
+2025-04-05 08:34:43.470  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method void com.example.demo.service.CustomerService.deleteCustomer(Long) execution started.
+2025-04-05 08:34:43.470  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:34:43.472 DEBUG 1084 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 08:34:43.473 TRACE 1084 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:43.474  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:34:43.474  INFO 1084 --- [http-nio-8081-exec-8] com.example.demo.aspect.LoggingAspect    : Method void com.example.demo.service.CustomerService.deleteCustomer(Long) execution completed in 4 ms.
+2025-04-05 08:34:43.475 DEBUG 1084 --- [http-nio-8081-exec-8] org.hibernate.SQL                        : delete from customers where id=?
+2025-04-05 08:34:43.476 TRACE 1084 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-04-05 08:34:43.480 DEBUG 1084 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:34:43.480 DEBUG 1084 --- [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2025-04-05 08:34:43.480 DEBUG 1084 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2025-04-05 08:34:58.218 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/customers", parameters={}
+2025-04-05 08:34:58.218 DEBUG 1084 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#getAllCustomers()
+2025-04-05 08:34:58.219  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution started.
+2025-04-05 08:34:58.219  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-04-05 08:34:58.229 DEBUG 1084 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select customer0_.id as id1_1_, customer0_.email as email2_1_, customer0_.password as password3_1_, customer0_.username as username4_1_ from customers customer0_
+2025-04-05 08:34:58.231 DEBUG 1084 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-04-05 08:34:58.231 TRACE 1084 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-04-05 08:34:58.234  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-04-05 08:34:58.234  INFO 1084 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.CustomerService.getAllCustomers() execution completed in 15 ms.
+2025-04-05 08:34:58.235 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-04-05 08:34:58.235 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Customer [id=2, username=kavin, email=mithi]]]
+2025-04-05 08:34:58.236 DEBUG 1084 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-04-05 08:34:58.236 TRACE 1084 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-04-05 08:34:58.238 DEBUG 1084 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
